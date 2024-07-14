@@ -26,7 +26,7 @@ class _locationinputState extends State<locationinput> {
     }
     final lat = _pickedLocation!.latitude;
     final lng = _pickedLocation!.longitude;
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng=&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key=AIzaSyBXoQCJVoVbncc-Y9j8MA5skUQf7L6qRNM';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng=&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key=';
   }
 
   void _getCurrentLocation() async {
@@ -68,7 +68,7 @@ class _locationinputState extends State<locationinput> {
   
 }
 Future<void> saveLocation(double lat, double lng) async{
- final url = Uri.parse("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&key=AIzaSyBXoQCJVoVbncc-Y9j8MA5skUQf7L6qRNM");
+ final url = Uri.parse("https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$lng&key=");
   final response = await http.get(url);
   final resdata = jsonDecode(response.body);
   final address = resdata['results'][0]['formatted_address'];
